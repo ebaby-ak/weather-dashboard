@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+    ></script>
 </head>
 <body>
-    
+    <div class="search-container">
+        <input type="text" id="cityInput" placeholder="Enter a city">
+        <button id="searchBtn">Search</button>
+    </div>
+    <div class="current-weather">
+        <h2 id="currentCity"></h2>
+    </div>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <script src="./script.js"></script>
 </body>
 </html>
