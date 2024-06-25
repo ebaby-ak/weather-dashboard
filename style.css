@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    background-color: #b579d8;
+    padding: 20px;
+    color: white;
+}
+
+.search-container {
+    text-align: left;
+}
+
+.current-weather, .forecast-container {
+    text-align: left;
+}
+
+.forecast {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.forecast-item {
+    background-color: #a7a7a7;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    flex: 1 0 30%;
+    box-shadow: 0 0 10px;
+}
