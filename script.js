@@ -28,6 +28,7 @@ function getWeather(city) {
     })
     .then(function(data) {
         displayCurrentWeather(data);
+        displayForecast(data);
     })
     .catch(function(error) {
         console.log("Error Fetching:", error);
@@ -62,6 +63,6 @@ function displayForecast(data) {
             `;
             
         forecastContainer.append(forecastCard);
-    })
+    });
 
 }
