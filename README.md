@@ -2,60 +2,56 @@
 
 ## Description
 
-The challenge is to build a command-line SVG Logo Generator. The Logo is defined by a shape and a color, which is determined through user input. The shape options are Circle, Square, or Triangle. The color is broader as the user can input either names or hexadecimal values. After the user completes the input questions, the logo will be generated within the 'logos' folder and can be viewed in the live server.
+The challenge is to build a Weather Dashboard that displays the current weather along with a 5-Day forecast. The application finds the weather for a specified city based on the user's input. The OpenWeatherMap Third-party API is used to find the data.
 
 ## User Story
 
 ```md
-AS a freelance web developer
-I WANT to generate a simple logo for my projects
-SO THAT I don't have to pay a graphic designer
+AS A traveler
+I WANT to see the weather outlook for multiple cities
+SO THAT I can plan a trip accordingly
 ```
 
 ## Acceptance Criteria
 
 ```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for text
-THEN I can enter up to three characters
-WHEN I am prompted for the text color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I am prompted for a shape
-THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-WHEN I am prompted for the shape's color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I have entered input for all the prompts
-THEN an SVG file is created named `logo.svg`
-AND the output text "Generated logo.svg" is printed in the command line
-WHEN I open the `logo.svg` file in a browser
-THEN I am shown a 300x200 pixel image that matches the criteria I entered
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
 ```
 ## Table of Contents
-- [Installation](#installation)
+- [Technologies](#technologies)
 - [Usage](#usage)
 - [License](#license)
 - [Example](#example)
-- [Walkthrough](#walkthrough)
 - [Questions](#questions)
 
-## Installation
-Follow these steps to install the application:
-1. run npm install to install the dependencies for the application
+## Technologies
+1. HTML
+2. JavaScript
+3. CSS
+4. OpenWeatherMap API
 
 ## Usage
 Follow these steps to run the application:
-1. run node index.js in your terminal to run the application
+1. Open the application using the deployed link: https://ebaby-ak.github.io/weather-dashboard/
+2. Search for your desired city
+3. Current Weather and 5-Day Forecast will populate
 
 ## License
 None
 
 
 ## Example
-**Cirvle SVG Logo:**
-[Example](./example/svg-circle.png)
+**Chicago Weather:**
+![](./images/example.png)
 
-## Walkthrough
-[Walkthrough Video Link](https://drive.google.com/file/d/12ko_K5TCNubKXvljy0EOCaWCqTkTfVzP/view?usp=sharing)
 
 ## Questions
 For any questions, please reach out at:
