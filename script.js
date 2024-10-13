@@ -29,10 +29,10 @@ function getWeather(city) {
 
 
 function displayCurrentWeather(data) {
-    $('#currentCity').text(`${data.name} (${new Date().toLocaleDateString()})`);
-    $("#currentTemp").text(`Temp: ${data.main.temp}°F`);
-    $('#currentWind').text(`Wind: ${data.wind.speed} MPH`);
-    $('#currentHumidity').text(`Humidity: ${data.main.humidity}%`);
+    $('#currentCity').text(`${data.city.name} (${new Date().toLocaleDateString()})`);
+    $("#currentTemp").text(`Temp: ${data.list[0].main.temp}°F`);
+    $('#currentWind').text(`Wind: ${data.list[0].wind.speed} MPH`);
+    $('#currentHumidity').text(`Humidity: ${data.list[0].main.humidity}%`);
 
 }
 function getForecast(lat, lon) {
