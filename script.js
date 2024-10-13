@@ -13,9 +13,12 @@ $('#searchBtn').on('click', function(){
 });
 
 function getWeather(city) {
-    const apiUrl = `api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
     fetch(apiUrl)
     .then(function (response) {
+        if (!response.ok) {
+            throw new Error('Response error');
+        }
         return response.json();
     })
     .then(function(data) {
@@ -33,11 +36,10 @@ function displayCurrentWeather(data) {
     $("#currentTemp").text(`Temp: ${data.list[0].main.temp}°F`);
     $('#currentWind').text(`Wind: ${data.list[0].wind.speed} MPH`);
     $('#currentHumidity').text(`Humidity: ${data.list[0].main.humidity}%`);
-
 }
+
 function getForecast(lat, lon) {
-    const apiUrl =
-      `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e1973810f9a04e7b5c1df04fa43bea43}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
      
       $.getJSON(apiUrl, function(data) {
         displayForecast(data);
