@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 
 $('#searchBtn').on('click', function(){
-    const city = $('cityInput').val();
+    const city = $('#cityInput').val();
     if (city) {
         getWeather(city);
     } else {
@@ -13,29 +13,40 @@ $('#searchBtn').on('click', function(){
 });
 
 function getWeather(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e1973810f9a04e7b5c1df04fa43bea43}`
-
-    $.getJSON(apiUrl, function(data) {
-        displayCurrentWeather(data);
-        getForecast(data.coord.lat, data.coord.lon);
+    const apiUrl = `api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKey}`;
+    fetch(apiUrl)
+    .then(function (response) {
+        return response.json();
     })
+    .then(function(data) {
+        displayCurrentWeather(data);
+    })
+    .catch(function(error) {
+        alert('Error getting weather');
+    });
 }
 
 
 
-$.get(apiUrl, function(data) {
+function displayCurrentWeather(data) {
     $('#currentCity').text(`${data.name} (${new Date().toLocaleDateString()})`);
     $("#currentTemp").text(`Temp: ${data.main.temp}°F`);
     $('#currentWind').text(`Wind: ${data.wind.speed} MPH`);
     $('#currentHumidity').text(`Humidity: ${data.main.humidity}%`);
 
-});
-
+}
 function getForecast(lat, lon) {
     const apiUrl =
       `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e1973810f9a04e7b5c1df04fa43bea43}`;
      
       $.getJSON(apiUrl, function(data) {
         displayForecast(data);
-      });
-    }
+      }).fail(function() {
+        alert('Error with forecast data.')
+      });   
+}
+
+function displayForecast(data) {
+    const forecastContainer = $('#forecast');
+    forecastContainer.empty();
+}
