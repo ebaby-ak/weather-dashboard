@@ -42,7 +42,7 @@ function displayCurrentWeather(data) {
 console.log('Displaying Weather:', data);
 
     $('#currentCity').text(`${data.city.name} (${new Date().toLocaleDateString()})`);
-    $("#currentTemp").text(`Temp: ${data.list[0].main.temp}°F`);
+    $("#currentTemp").text(`Temp: ${Math.round((data.list[0].main.temp - 273.15) * (9/5)  +32)}°F`);
     $('#currentWind').text(`Wind: ${data.list[0].wind.speed} MPH`);
     $('#currentHumidity').text(`Humidity: ${data.list[0].main.humidity}%`);
 }
@@ -61,7 +61,7 @@ function displayForecast(data) {
             dailyForecasts.push(date);
        
 
-        const temp = forecast.main.temp;
+        const temp = Math.round((forecast.main.temp - 273.15) * (9/5) + 32);
 
         const forecastCard = `
         <div>
