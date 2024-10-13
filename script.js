@@ -46,17 +46,22 @@ console.log('Displaying Weather:', data);
     $('#currentHumidity').text(`Humidity: ${data.list[0].main.humidity}%`);
 }
 
-function getForecast(lat, lon) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-     
-      $.getJSON(apiUrl, function(data) {
-        displayForecast(data);
-      }).fail(function() {
-        alert('Error with forecast data.')
-      });   
-}
-
 function displayForecast(data) {
-    const forecastContainer = $('#forecast');
+    const forecastContainer = $('#forecastCards');
     forecastContainer.empty();
+
+    data.list.forEach(forecast => {
+        const date = new Date(forecast.dt_txt).toLocaleDateString();
+        const temp = forecast.main.temp;
+
+        const forecastCard = `
+        <div>
+            <h3>${date}</h3>
+            <p>Temp: ${temp}°F</p>
+        </div>
+            `;
+            
+        forecastContainer.append(forecastCard);
+    })
+
 }
