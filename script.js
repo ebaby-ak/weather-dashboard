@@ -51,8 +51,16 @@ function displayForecast(data) {
     const forecastContainer = $('#forecastCards');
     forecastContainer.empty();
 
+    const dailyForecasts = [];
+
+
     data.list.forEach(forecast => {
         const date = new Date(forecast.dt_txt).toLocaleDateString();
+
+        if (!dailyForecasts.includes(date)) {
+            dailyForecasts.push(date);
+       
+
         const temp = forecast.main.temp;
 
         const forecastCard = `
@@ -63,6 +71,6 @@ function displayForecast(data) {
             `;
             
         forecastContainer.append(forecastCard);
+     }
     });
-
 }
